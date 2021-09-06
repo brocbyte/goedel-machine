@@ -20,13 +20,26 @@ Can we build it?
 
 - an axiomatic system A encoded in p(1):
   <ol type="a">
-  <li> instruction semantics </li>
-  <li> the initial program p(1) itself </li>
-  <li> stochastic environmantal properties </li>
+  <li> instruction semantics (hardware axioms) </li>
+  <li> reward axioms </li>
+  <li> environmant axioms </li>
+  <li> uncertainty axioms; string manipulation </li>
+  <li> initial state axioms </li>
   <li> the formal utility function u </li>
   </ol>
 
 - ignores those self-improvements whose effectiveness it cannot prove
+
+#### Instructions used by proof techniques
+
+1. **get-axiom(n)** - appends n-th possible axiom to the current proof 
+2. **apply-rule(k, m, n)** - applies the k-th inference rule to the m-th and n-th thrm in the current proof, appends result
+3. **delete-theorem(m)** - deletes the m-th theorem in the currently stored proof
+4. **set-switchprog(m, n)** - sets switchprog := s[m:n]
+5. **check()** - tests whether the last theorem in proof is a target theorem
+6. **state2theorem(m, n)** - creates a theorem of the form s[m:n](t1) = z, where t1 - a time measured after state2theorem was invoked
+
+#### Bias-Optimal Proof Search
 
 ### Links
 
