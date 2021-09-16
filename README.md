@@ -4,7 +4,7 @@ Can we build it?
 
 ## Notes
 
-- universal problem solvers = solver (environment) + proof-searcher (rewrite itself for good)
+- goedel machines - universal problem solvers = solver (environment) + proof-searcher (rewrite itself for good)
 
 - p(1) - the initial software = e(1) + proof-search technique
 
@@ -30,6 +30,21 @@ Can we build it?
 
 - ignores those self-improvements whose effectiveness it cannot prove
 
+- target theorem:<br>
+    > tt(s, t, switchprog) = [u(s, {wait_until(t), switchprog()}) > u(s, {scheduler})]
+
+  or
+
+  "is it useful to perform the switch at time t?"
+
+- target theorem can be used in two ways:
+
+  1. generate a candidate switchprog, run (time-bounded) + evaluate
+  2. generate theorems from an axiomatic system, test them for equivalence with target theorem
+
+- initial algorithm can be Hutter's HSEARCH
+
+
 #### Instructions used by proof techniques
 
 1. **get-axiom(n)** - appends n-th possible axiom to the current proof 
@@ -37,9 +52,11 @@ Can we build it?
 3. **delete-theorem(m)** - deletes the m-th theorem in the currently stored proof
 4. **set-switchprog(m, n)** - sets switchprog := s[m:n]
 5. **check()** - tests whether the last theorem in proof is a target theorem
-6. **state2theorem(m, n)** - creates a theorem of the form s[m:n](t1) = z, where t1 - a time measured after state2theorem was invoked
+6. **state2theorem(m, n)** - creates a theorem of the form s\[m:n\](t1) = z, where t1 - a time measured after state2theorem was invoked
 
-#### Bias-Optimal Proof Search
+### Self-Reflective Systems
+
+
 
 ### Links
 
